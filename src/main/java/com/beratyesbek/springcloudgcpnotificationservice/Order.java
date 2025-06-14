@@ -1,4 +1,4 @@
-package com.beratyesbek.springcloudgcporderservice;
+package com.beratyesbek.springcloudgcpnotificationservice;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
