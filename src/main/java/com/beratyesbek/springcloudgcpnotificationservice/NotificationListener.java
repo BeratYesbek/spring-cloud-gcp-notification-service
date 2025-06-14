@@ -14,9 +14,9 @@ public class NotificationListener {
 
     private static final Logger logger = LoggerFactory.getLogger(NotificationListener.class);
 
-    private PubSubTemplate pubSubTemplate;
+    private final PubSubTemplate pubSubTemplate;
 
-    private ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper;
 
     @PostConstruct
     public void subscribe() {
@@ -26,8 +26,6 @@ public class NotificationListener {
                 Order order = objectMapper.readValue(data, Order.class);
                 logger.info("Received order: ID={}, Product={}, Price={}",
                         order.getId(), order.getProduct(), order.getPrice());
-
-                // Simulate notification processing (e.g., send email, SMS)
                 sendNotification(order);
 
                 message.ack();
